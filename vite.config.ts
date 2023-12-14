@@ -6,37 +6,45 @@ import { ManifestOptions, VitePWA, VitePWAOptions } from 'vite-plugin-pwa'
 
 const pwaOptions: Partial<VitePWAOptions> = {
   mode: 'development',
-  registerType: 'prompt',
+  registerType: 'autoUpdate',
   base: '/',
   workbox: {
-    runtimeCaching: [{
-      urlPattern: ({ url }) => {
-        return url.pathname.startsWith('/api')
-      },
-      handler: "CacheFirst" as const,
-      options: {
-        cacheName: "api-cache",
-        cacheableResponse: {
-          statuses: [0, 200]
-        }
-      }
-    }],
+    // runtimeCaching: [{
+    //   urlPattern: ({ url }) => {
+    //     return url.pathname.startsWith('/api')
+    //   },
+    //   handler: "NetworkFirst" as const,
+    //   options: {
+    //     cacheName: "api-cache",
+    //     cacheableResponse: {
+    //       statuses: [0, 200]
+    //     }
+    //   }
+    // }],
+    // globPatterns: ['**/src/**/*'],
+    // globIgnores: [
+    //   "**/node_modules/**/*",
+    //   "sw.js",
+    //   "workbox-*.js"
+    // ],
   },
-  // includeAssets: [
-  //   "**/*"
-  // ],
+  includeAssets: [
+    "**/*"
+  ],
   manifest: {
-    name: 'PWA Router',
-    short_name: 'PWA Router',
+    name: 'thndr app',
+    short_name: 'thndr app',
     theme_color: '#ffffff',
     scope: '/',
     start_url: '/',
     display: 'standalone',
+    
     icons: [
       {
         src: 'thndr.png', // <== don't add slash, for testing
         sizes: '512x512',
         type: 'image/png',
+        purpose: 'maskable'
       },
     ],
   },
