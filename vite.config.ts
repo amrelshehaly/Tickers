@@ -9,18 +9,48 @@ const pwaOptions: Partial<VitePWAOptions> = {
   registerType: 'autoUpdate',
   base: '/',
   workbox: {
-    // runtimeCaching: [{
-    //   urlPattern: ({ url }) => {
-    //     return url.pathname.startsWith('/api')
-    //   },
-    //   handler: "NetworkFirst" as const,
-    //   options: {
-    //     cacheName: "api-cache",
-    //     cacheableResponse: {
-    //       statuses: [0, 200]
-    //     }
-    //   }
-    // }],
+    runtimeCaching: [{
+      urlPattern: ({ url }) => {
+        return url.pathname.startsWith('/api')
+      },
+      handler: "NetworkFirst" as const,
+      options: {
+        cacheName: "api-cache",
+        cacheableResponse: {
+          statuses: [0, 200]
+        }
+      }
+    },
+  {
+    urlPattern: ({ request }) => {
+      return request.destination === 'image';
+    },
+    handler: "CacheFirst" as const,
+    options: {
+      cacheName: "images",
+      cacheableResponse: {
+        statuses: [0, 200],
+      },
+      expiration:{
+        maxEntries: 50,
+        maxAgeSeconds: 60 * 60 * 24 * 30, // 30 Days
+        purgeOnQuotaError: true
+      }
+    }
+  },
+  // {
+  //   urlPattern: ({ request }) => {
+  //     return request.destination === 'script';
+  //   },
+  //   handler: "CacheFirst" as const,
+  //   options: {
+  //     cacheName: "scripts",
+  //     cacheableResponse: {
+  //       statuses: [0, 200],
+  //     },
+  //   }
+  // }
+],
     // globPatterns: ['**/src/**/*'],
     // globIgnores: [
     //   "**/node_modules/**/*",
@@ -41,7 +71,7 @@ const pwaOptions: Partial<VitePWAOptions> = {
     
     icons: [
       {
-        src: 'thndr.png', // <== don't add slash, for testing
+        src: 'nasdaq.png', // <== don't add slash, for testing
         sizes: '512x512',
         type: 'image/png',
         purpose: 'maskable'
