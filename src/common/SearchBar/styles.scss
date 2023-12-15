@@ -1,0 +1,15 @@
+.SearchWrapper {
+    display: flex;
+    justify-content: center;
+    padding: 1.5em;
+
+    input {
+        width: 100%;
+        border-radius: 5em;
+        border-color: white;
+        background-color: #232639;
+        color: white;
+        height: 45px;
+        padding: 1em;
+    }
+}
