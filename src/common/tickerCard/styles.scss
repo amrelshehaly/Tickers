@@ -1,0 +1,33 @@
+.CardWrapper {
+    width: 13em;
+    height: 10em;
+    @media (max-width: 920px) {
+        width: 10em;
+    }
+
+    @media (max-width: 600px) {
+        width: 8em;
+    }
+
+    border-radius: 10px;
+    background-color: #232639;
+    align-items: center;
+    display: grid;
+ 
+    & .CardContent {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: #d5d5d9;
+
+        & :nth-child(2) {
+            font-size: 1.5em;
+        }
+
+        & :nth-child(3) {
+            font-size: 0.8em;
+        }
+    }
+
+}

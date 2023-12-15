@@ -1,18 +1,13 @@
-import { Box } from "@mui/material";
 const nasdaqLogo = "./nasdaq-white-1.png";
+import "./styles.scss"
 
 const Header = () => {
   return (
-    <Box
-      sx={{
-        backgroundColor: "#191a28",
-        width: "100%",
-      }}
-    >
-      <Box paddingY={"1em"} paddingLeft={"1em"}>
-        <img src={nasdaqLogo} width={"100px"} />
-      </Box>
-    </Box>
+    <div className="headerWrapper">
+      <div>
+        <img src={nasdaqLogo} />
+      </div>
+    </div>
   );
 };
 

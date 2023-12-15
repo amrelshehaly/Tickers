@@ -1,6 +1,5 @@
 import React from 'react'
-import { TextField } from '@mui/material'
-import { SearchWrapper } from './styles'
+import './styles.scss'
 
 type SearchProps = {
     onChange: React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>
@@ -8,9 +7,9 @@ type SearchProps = {
 
 const SearchBar = ({ onChange }: SearchProps) => {
   return (
-    <SearchWrapper>
-        <TextField id="search" type="search" placeholder='Search for a stock' onChange={onChange} InputLabelProps={{ shrink: true }} />
-    </SearchWrapper>
+    <div className='SearchWrapper'>
+        <input placeholder='Search for a stock' type='search' onChange={onChange} />
+    </div>
   )
 }
 
