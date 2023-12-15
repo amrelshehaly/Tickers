@@ -1,21 +1,35 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
-// import { } from 'react-router-dom'
-// import { registerSW } from 'virtual:pwa-register'
+import React, { lazy, Suspense } from "react";
+import ReactDOM from "react-dom/client";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import { ThemeProvider, CssBaseline } from "@mui/material";
+import Theme from "./theme.ts";
+// import Header from "./common/header/index.tsx";
 
-// const updateSW = registerSW({
-//   onNeedRefresh() {
-//     if (confirm("New content available. Reload?")) {
-//       updateSW(true);
-//     }
-//   },
-// });
+const Header = lazy(() => import("./common/header/index.tsx"))
 
+const router = createBrowserRouter([
+  {
+    path: '/',
+    Component: lazy(() => import('./App.tsx')),
+    // errorElement: <ErrorBoundaryPage />,
+    // children: [
+    //   {
+    //     path: "/",
+    //     Component: lazy(() => import('./App.tsx')),
+    //   },
+    // ],
+  },
+]);
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+    <ThemeProvider theme={Theme}>
+      <Suspense fallback={<>loading...</>}>
+        <Header />
+        <RouterProvider router={router} />
+      </Suspense>
+      <Outlet />
+      <CssBaseline />
+    </ThemeProvider>
+  </React.StrictMode>
+);

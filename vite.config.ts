@@ -38,18 +38,18 @@ const pwaOptions: Partial<VitePWAOptions> = {
       }
     }
   },
-  // {
-  //   urlPattern: ({ request }) => {
-  //     return request.destination === 'script';
-  //   },
-  //   handler: "CacheFirst" as const,
-  //   options: {
-  //     cacheName: "scripts",
-  //     cacheableResponse: {
-  //       statuses: [0, 200],
-  //     },
-  //   }
-  // }
+  {
+    urlPattern: ({ request }) => {
+      return request.destination === 'script';
+    },
+    handler: "CacheFirst" as const,
+    options: {
+      cacheName: "scripts",
+      cacheableResponse: {
+        statuses: [0, 200],
+      },
+    }
+  }
 ],
     // globPatterns: ['**/src/**/*'],
     // globIgnores: [
@@ -71,10 +71,15 @@ const pwaOptions: Partial<VitePWAOptions> = {
     
     icons: [
       {
-        src: 'nasdaq.png', // <== don't add slash, for testing
-        sizes: '512x512',
+        src: 'nasdaq-icon.png', // <== don't add slash, for testing
+        sizes: '192x192',
         type: 'image/png',
         purpose: 'maskable'
+      },
+      {
+        src: 'nasdaq-icon-512.png', // <== don't add slash, for testing
+        sizes: '512x512',
+        type: 'image/png',
       },
     ],
   },
