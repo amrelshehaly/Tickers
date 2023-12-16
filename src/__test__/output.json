@@ -1,0 +1,69 @@
+{
+    "results": [
+        {
+            "ticker": "AAPY",
+            "name": "Kurv Yield Premium Strategy Apple (AAPL) ETF",
+            "market": "stocks",
+            "locale": "us",
+            "primary_exchange": "BATS",
+            "type": "ETS",
+            "active": true,
+            "currency_name": "usd",
+            "composite_figi": "BBG01JXKG7J3",
+            "share_class_figi": "BBG01JXKG8C8",
+            "last_updated_utc": "2023-12-15T00:00:00Z"
+        },
+        {
+            "ticker": "AAPB",
+            "name": "GraniteShares 1.75x Long AAPL Daily ETF",
+            "market": "stocks",
+            "locale": "us",
+            "primary_exchange": "XNAS",
+            "type": "ETS",
+            "active": true,
+            "currency_name": "usd",
+            "cik": "0001689873",
+            "composite_figi": "BBG0193F21N2",
+            "share_class_figi": "BBG0193F22H7",
+            "last_updated_utc": "2023-12-15T00:00:00Z"
+        },
+        {
+            "ticker": "AAPJ",
+            "name": "AAP INC",
+            "market": "otc",
+            "locale": "us",
+            "type": "CS",
+            "active": true,
+            "currency_name": "USD",
+            "composite_figi": "BBG000BHS5L4",
+            "share_class_figi": "BBG001S6BY24",
+            "last_updated_utc": "2023-10-11T21:27:37.159Z"
+        },
+        {
+            "ticker": "AALBF",
+            "name": "AALBERTS INDUS NV ORD",
+            "market": "otc",
+            "locale": "us",
+            "type": "OS",
+            "active": true,
+            "currency_name": "USD",
+            "last_updated_utc": "2021-09-28T00:10:12.175Z"
+        },
+        {
+            "ticker": "AAALY",
+            "name": "AAREAL BANK AG UNSP/ADR",
+            "market": "otc",
+            "locale": "us",
+            "type": "ADRC",
+            "active": true,
+            "currency_name": "USD",
+            "composite_figi": "BBG002628DF1",
+            "share_class_figi": "BBG002628F57",
+            "last_updated_utc": "2023-05-04T05:00:29.876Z"
+        }
+    ],
+    "status": "OK",
+    "request_id": "bb0a5bb5799918da99c5045a804221d4",
+    "count": 5,
+    "next_url": "https://api.polygon.io/v3/reference/tickers?cursor=YWN0aXZlPXRydWUmYXA9Mi4xMCU3QzYzMjJmMjYzNjZlYTdlYjM0ZWRjN2Y3ZGM0YWZkMmMzMDMxY2Y2MDdiOTc0ZGVjMjYzZmE0YTgyZjgyZGQ5OTkmYXM9JmRhdGU9MjAyMy0xMi0xNiZsaW1pdD01Jm9yZGVyPWFzYyZzZWFyY2g9QUEmc29ydD10aWNrZXI"
+}

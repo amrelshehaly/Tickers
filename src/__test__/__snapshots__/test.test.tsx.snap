@@ -1,0 +1,34 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Testing the tickers and search functionality > Should render input searchbar 1`] = `
+<div
+  class="SearchWrapper"
+>
+  <input
+    placeholder="Search for a stock"
+    type="search"
+  />
+</div>
+`;
+
+exports[`Testing the tickers and search functionality > Should render tye searchbar 1`] = `
+<div
+  class="SearchWrapper"
+>
+  <input
+    placeholder="Search for a stock"
+    type="search"
+  />
+</div>
+`;
+
+exports[`Testing the tickers and search functionality > should load the tickers 1`] = `
+<div
+  class="SearchWrapper"
+>
+  <input
+    placeholder="Search for a stock"
+    type="search"
+  />
+</div>
+`;
