@@ -20,7 +20,7 @@ const TickerCard: FC<CardProps> = ({ companyName, name }) => {
           <img src="" loading="lazy" />
         </div>
         <div>{name}</div>
-        <div>{companyName}</div>
+        <p>{companyName}</p>
       </div>
     </div>
   );

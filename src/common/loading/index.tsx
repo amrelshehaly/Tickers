@@ -1,13 +1,9 @@
-import { FC } from 'react'
+import './styles.scss'
 
-interface Props {
-  show: boolean
-}
-
-const Loading: FC<Props> = ({ show }) => {
+const Loading = () => {
   return (
-    <div>
-      
+    <div className={"loading-screen active"}>
+      <div className="loading-spinner"></div>
     </div>
   )
 }
