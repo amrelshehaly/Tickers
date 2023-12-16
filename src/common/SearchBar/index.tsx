@@ -3,12 +3,22 @@ import './styles.scss'
 
 type SearchProps = {
     onChange: React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>
+    onSubmit: () => void
 }
 
-const SearchBar = ({ onChange }: SearchProps) => {
+const SearchBar = ({ onChange, onSubmit }: SearchProps) => {
+ 
+  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    console.log(event)
+    if(event.key === 'Enter'){
+      console.log('enter press here! ')
+      onSubmit()
+    }
+  }
+
   return (
     <div className='SearchWrapper'>
-        <input placeholder='Search for a stock' type='search' onChange={onChange} />
+        <input placeholder='Search for a stock' type='search' onChange={onChange} onKeyPress={handleKeyPress} />
     </div>
   )
 }

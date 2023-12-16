@@ -1,4 +1,3 @@
-import { FC } from "react";
 import "./styles.scss";
 
 type CardProps = {
@@ -12,15 +11,12 @@ type CardProps = {
  * @param { name } string - Ticker name
  * @param { image } string - place ticker image, if found
  */
-const TickerCard: FC<CardProps> = ({ companyName, name }) => {
+const TickerCard = ({ companyName, name }: CardProps) => {
   return (
     <div className="CardWrapper">
       <div className="CardContent">
-        <div>
-          <img src="" loading="lazy" />
-        </div>
-        <div>{name}</div>
-        <div>{companyName}</div>
+        <div id="title">{name}</div>
+        <div id="subTitle">{companyName}</div>
       </div>
     </div>
   );

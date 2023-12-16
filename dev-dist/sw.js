@@ -82,17 +82,13 @@ define(['./workbox-536b9c11'], (function (workbox) { 'use strict';
     "revision": "3ca0b8505b4bec776b69afdba2768812"
   }, {
     "url": "index.html",
-    "revision": "0.dr44v08nms"
+    "revision": "0.2fr71853h3o"
   }], {});
   workbox.cleanupOutdatedCaches();
   workbox.registerRoute(new workbox.NavigationRoute(workbox.createHandlerBoundToURL("index.html"), {
     allowlist: [/^\/$/]
   }));
-  workbox.registerRoute(({
-    url
-  }) => {
-    return url.pathname.startsWith("/api");
-  }, new workbox.NetworkFirst({
+  workbox.registerRoute(/^https:\/\/api\.polygon\.io\/v3\/reference\/tickers\/*/, new workbox.NetworkFirst({
     "cacheName": "api-cache",
     plugins: [new workbox.CacheableResponsePlugin({
       statuses: [0, 200]

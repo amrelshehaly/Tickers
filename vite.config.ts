@@ -10,9 +10,7 @@ const pwaOptions: Partial<VitePWAOptions> = {
   base: '/',
   workbox: {
     runtimeCaching: [{
-      urlPattern: ({ url }) => {
-        return url.pathname.startsWith('/api')
-      },
+      urlPattern: /^https:\/\/api\.polygon\.io\/v3\/reference\/tickers\/*/,
       handler: "NetworkFirst" as const,
       options: {
         cacheName: "api-cache",
