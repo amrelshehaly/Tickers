@@ -16,11 +16,8 @@ const TickerCard: FC<CardProps> = ({ companyName, name }) => {
   return (
     <div className="CardWrapper">
       <div className="CardContent">
-        <div>
-          <img src="" loading="lazy" />
-        </div>
         <div>{name}</div>
-        <p>{companyName}</p>
+        <div>{companyName}</div>
       </div>
     </div>
   );
