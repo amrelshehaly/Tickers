@@ -6,9 +6,9 @@ const headers = {
   "Content-Type": "application/json",
 };
 
-export const getTickers = async (getNextURL: string): Promise<getTickerResponse> => {
+export const getTickers = async (getNextURL: string, search?: string): Promise<getTickerResponse> => {
   try {
-    const response = await fetch(getNextURL, {
+    const response = await fetch(getNextURL +`&search=${search}`, {
       headers,
       method: "GET",
     });

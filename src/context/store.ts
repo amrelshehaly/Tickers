@@ -17,6 +17,7 @@ type tickerProps = {
 type storeProps = {
     response: resultProps,
     setResults: (res: resultProps) => void
+    clearResults: () => void
 }
 
 export const useStore = create<storeProps>((set) => ({
@@ -26,14 +27,23 @@ export const useStore = create<storeProps>((set) => ({
         next_url: ''
     },
     setResults: async (response) => {
-      set((state) => ({
+      set({
         response:{
             next_url: response.next_url,
             status: response.status,
-            results: [...state.response.results, ...response.results]
+            results: [...response.results]
         }
-      }))
+      })
     },
+    clearResults: () =>{
+       set({
+        response:{
+          next_url: '',
+          status: '',
+          results: []
+        }
+      })
+    }
   }))
 
   export const StoreContext = createContext(useStore)

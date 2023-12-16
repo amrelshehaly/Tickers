@@ -21,14 +21,15 @@
         flex-direction: column;
         color: #d5d5d9;
 
-        & :nth-child(1) {
+        & #title {
             font-size: 1.5em;
         }
 
-        & :nth-child(2) {
+        & #subTitle {
             font-size: 1.0vmin;
             text-align: center;
             padding: 0.6em;
+            font-display: swap;
         }
     }
 

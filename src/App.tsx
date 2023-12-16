@@ -4,18 +4,26 @@ import "./App.scss";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Alert from "./common/Alert";
 import useTicker from "./hooks/useTicker";
-
+// import Loading from "./common/loading";
 
 function App() {
-  const { fetchMore, response, loading, reFetchData, error } = useTicker()
+
+  const { fetchMore, response, loading, reFetchData, error, restResult, setSearch } = useTicker()
+
+  const handleSearch = () => {
+    restResult()
+  }
+
   return ( 
     <>
       <SearchBar
         onChange={(e) => {
-          console.log(e);
+          setSearch(e.target.value)
         }}
+        onSubmit={() => handleSearch()}
       />
       {error && <Alert msg={error?.error} refetch={reFetchData} />}
+      {/* {loading && <Loading />} */}
       {response.results && response.results.length > 0 && (
         <InfiniteScroll
           dataLength={response.results.length}

@@ -11,24 +11,29 @@ import { ErrorProps } from "../api/types";
  * 
  * @returns This Hook return the Response from the getTicker API, loading state and if errorFound. 
  *          Also you can call fetchMore to load more data.
+ * @
  */
 
 const useTicker = () => {
 
     const [ error, setError ] = useState<ErrorProps| undefined>(undefined)
     const [ loading, setLoading ] = useState<boolean>(true)
-    const { response, setResults } = useStore();
+    const { response, setResults, clearResults } = useStore();
+    const [ search, setSearch ] = useState<string>('')
 
 
-  const url =response.next_url || "https://api.polygon.io/v3/reference/tickers?active=true&limit=20";
+
+  const url = response.next_url || "https://api.polygon.io/v3/reference/tickers?active=true&limit=20";
 
   const fetchData = async () => {
     setLoading(true)
     try {
-        const output = await getTickers(url);
-        console.log("OUTPUT", output);
+        const output = await getTickers(url, search);
         if(output.status === 'OK'){
-            setResults(output);
+           setResults({
+                ...output,
+                results: [... response.results, ...output.results]
+            });
         }else{
             setError({
                 error: output.error || 'Exceeded Request, please try again later',
@@ -52,9 +57,15 @@ const useTicker = () => {
     fetchData()
   }
 
+  const restResult =  () => {
+    clearResults()
+  }
+
   useEffect(() => {
-    fetchData();
-  }, []);
+    if(response.next_url === ''){
+        fetchData();
+    }
+  }, [response.next_url]);
 
 
   return {
@@ -62,7 +73,10 @@ const useTicker = () => {
     fetchMore,
     reFetchData,
     error,
-    loading
+    loading,
+    fetchData,
+    setSearch,
+    restResult
   }
 
 };
