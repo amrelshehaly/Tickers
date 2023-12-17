@@ -52,13 +52,13 @@ const pwaOptions: Partial<VitePWAOptions> = {
     "**/*"
   ],
   manifest: {
-    name: 'thndr app',
-    short_name: 'thndr app',
-    theme_color: '#ffffff',
+    name: 'Nasdaq app',
+    short_name: 'Nasdaq app',
+    theme_color: '#000000',
     scope: '/',
     start_url: '/',
     display: 'standalone',
-    background_color: '#ffffff',
+    background_color: '#000000',
     icons: [
       {
         src: 'nasdaq-icon.png', // <== don't add slash, for testing
