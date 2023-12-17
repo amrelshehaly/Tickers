@@ -11,8 +11,6 @@ import {
       preset: '2023'
     },
     preset: combinePresetAndAppleSplashScreens(minimal2023Preset, {
-      // dark splash screens using black background (the default)
-      darkResizeOptions: { background: 'black', fit: 'contain' },
       linkMediaOptions:{
         addMediaScreen: true,
         log: true,
