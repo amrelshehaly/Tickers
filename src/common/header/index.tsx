@@ -1,5 +1,7 @@
-const nasdaqLogo = "./nasdaq-white-1.png";
 import "./styles.scss"
+
+const nasdaqLogo = "./nasdaq-white-1.png";
+
 
 const Header = () => {
   return (

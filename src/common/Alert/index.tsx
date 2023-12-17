@@ -6,6 +6,13 @@ type AlertProps = {
     refetch: () => void
 }
 
+/**
+ * 
+ * @param msg takes in the msg that you wish to preview
+ * @param reftech this is a callback function inorder to reftech the API if error occurs
+ * @returns  An alert component that will be shown in the bottom right corner of the page if an error accours
+ */
+
 const Alert = ({ msg, refetch }: AlertProps) => {
 
     const [ show, setShow ] = useState<boolean>(true)

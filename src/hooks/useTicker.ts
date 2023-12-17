@@ -21,8 +21,6 @@ const useTicker = () => {
     const { response, setResults, clearResults } = useStore();
     const [ search, setSearch ] = useState<string>('')
 
-
-
   const url = response.next_url || "https://api.polygon.io/v3/reference/tickers?active=true&limit=20";
 
   const fetchData = async () => {

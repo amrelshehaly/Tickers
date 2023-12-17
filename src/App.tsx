@@ -5,6 +5,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Alert from "./common/Alert";
 import useTicker from "./hooks/useTicker";
 // import Loading from "./common/loading";
+import SplashScreen from "./common/splash";
 
 function App() {
 
@@ -23,7 +24,7 @@ function App() {
         onSubmit={() => handleSearch()}
       />
       {error && <Alert msg={error?.error} refetch={reFetchData} />}
-      {/* {loading && <Loading />} */}
+      {/* {loading && <SplashScreen />} */}
       {response.results && response.results.length > 0 && (
         <InfiniteScroll
           dataLength={response.results.length}
