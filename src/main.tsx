@@ -5,9 +5,6 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import App from "./App.tsx";
 import Header from './common/header/index.tsx'
 
-
-// const Header = lazy(() => import("./common/header/index.tsx"));
-
 const router = createBrowserRouter([
   {
     path: "/",
