@@ -2,7 +2,7 @@ import {
   combinePresetAndAppleSplashScreens,
   defineConfig,
   minimal2023Preset,
-  AllAppleDeviceNames
+  AllAppleDeviceNames,
   } from '@vite-pwa/assets-generator/config'
 
 
@@ -15,6 +15,6 @@ import {
       darkResizeOptions: { background: 'black', fit: 'contain' },
       // or using a custom background color
       // darkResizeOptions: { background: '#1f1f1f' },
-    }, AllAppleDeviceNames),
+    }, [... AllAppleDeviceNames]),
     images: ['public/nasdaq-icon-512.png']
   })
