@@ -2,6 +2,11 @@
 
 This is a straightforward application that simulates the global stock exchange using data from a free tier third-party API (Polygon.io). The app allows you to explore and interact with stock exchange data, providing a glimpse into the dynamics of the global stack exchange community.
 
+### Project link
+https://resplendent-platypus-deaeec.netlify.app/
+
+
+
 ## Features
 
  ### **Splash Screen**
