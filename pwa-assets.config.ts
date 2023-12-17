@@ -21,9 +21,6 @@ import {
         compressionLevel: 9,
         quality: 60
       },
-      name: (landscape, size, dark) => {
-        return `apple-splash-${landscape ? 'landscape' : 'portrait'}-${typeof dark === 'boolean' ? (dark ? 'dark-' : 'light-') : ''}${size.width}x${size.height}.png`
-      }
       // or using a custom background color
       // darkResizeOptions: { background: '#1f1f1f' },
     }, [... AllAppleDeviceNames]),
