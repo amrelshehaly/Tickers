@@ -1,8 +1,6 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import { ManifestOptions, VitePWA, VitePWAOptions } from 'vite-plugin-pwa'
-// import replace from '@rollup/plugin-replace'
-
+import { VitePWA, VitePWAOptions } from 'vite-plugin-pwa'
 
 const pwaOptions: Partial<VitePWAOptions> = {
   mode: 'development',
@@ -49,12 +47,6 @@ const pwaOptions: Partial<VitePWAOptions> = {
     }
   }
 ],
-    // globPatterns: ['**/src/**/*'],
-    // globIgnores: [
-    //   "**/node_modules/**/*",
-    //   "sw.js",
-    //   "workbox-*.js"
-    // ],
   },
   includeAssets: [
     "**/*"
@@ -66,7 +58,7 @@ const pwaOptions: Partial<VitePWAOptions> = {
     scope: '/',
     start_url: '/',
     display: 'standalone',
-    
+    background_color: '#ffffff',
     icons: [
       {
         src: 'nasdaq-icon.png', // <== don't add slash, for testing
@@ -89,36 +81,10 @@ const pwaOptions: Partial<VitePWAOptions> = {
   },
 }
 
-const replaceOptions = { __DATE__: new Date().toISOString() }
-const claims = process.env.CLAIMS === 'true'
-const reload = process.env.RELOAD_SW === 'true'
-const selfDestroying = process.env.SW_DESTROY === 'true'
-
-if (process.env.SW === 'true') {
-  pwaOptions.srcDir = 'src'
-  pwaOptions.filename = claims ? 'claims-sw.ts' : 'prompt-sw.ts'
-  pwaOptions.strategies = 'injectManifest'
-  ;(pwaOptions.manifest as Partial<ManifestOptions>).name = 'PWA Inject Manifest'
-  ;(pwaOptions.manifest as Partial<ManifestOptions>).short_name = 'PWA Inject'
-}
-
-if (claims)
-  pwaOptions.registerType = 'autoUpdate'
-
-if (reload) {
-  // @ts-expect-error just ignore
-  replaceOptions.__RELOAD_SW__ = 'true'
-}
-
-if (selfDestroying)
-  pwaOptions.selfDestroying = selfDestroying
-
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     react(),
     VitePWA(pwaOptions),
-    
-    // replace({ preventAssignment: true, values: replaceOptions}),
   ],
 })

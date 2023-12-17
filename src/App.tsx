@@ -5,7 +5,6 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Alert from "./common/Alert";
 import useTicker from "./hooks/useTicker";
 // import Loading from "./common/loading";
-import SplashScreen from "./common/splash";
 
 function App() {
 
