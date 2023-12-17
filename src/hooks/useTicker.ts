@@ -32,8 +32,12 @@ const useTicker = () => {
         }
         setLoading(false)
     } catch (error) {
-        console.log("ERROR", error);
-        setLoading(false)
+      console.log("ERROR", error);
+      setError({
+        error: "Something went wrong, please check your internet connection",
+        status: "Error"
+      })
+      setLoading(false)
     }
   };
 
