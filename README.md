@@ -1,30 +1,32 @@
-# React + TypeScript + Vite
+# Global Stock Exchange Simulator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a straightforward application that simulates the global stock exchange using data from a free tier third-party API (Polygon.io). The app allows you to explore and interact with stock exchange data, providing a glimpse into the dynamics of the global stack exchange community.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ ### **Splash Screen**
 
-## Expanding the ESLint configuration
+- User can see Nasdaq logo centered on the screen
+- User can see the developer's name at the bottom of the screen
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### **Explore Screen**
 
-- Configure the top-level `parserOptions` property like this:
+- User can see stocks listed in Nasdaq exchange with their ticker and full name
+- User can load more stocks by scrolling through the screen
+- User can search for a specific stock (backend search)
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+
+### To install dependencies type this command:
+```git
+  yarn add // or npm install
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### To run the project dev mode: 
+```git
+  yarn dev  // or npm run dev
+```
+
+### To run test cases: 
+```git
+  yarn test // or npm run test
+```
