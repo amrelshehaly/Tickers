@@ -14,10 +14,6 @@ export const getTickers = async (getNextURL: string, search?: string): Promise<g
     });
     return await response.json();
   } catch (error) {
-    // throw new ErrorClass ({
-    //     error: (error as ErrorProps).error,
-    //     status: (error as ErrorProps).status
-    // })
     throw new Error ()
   }
 };
