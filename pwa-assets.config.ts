@@ -1,6 +1,8 @@
 import {
-    defineConfig,
-    minimal2023Preset as preset
+  combinePresetAndAppleSplashScreens,
+  defineConfig,
+  minimal2023Preset,
+  AllAppleDeviceNames
   } from '@vite-pwa/assets-generator/config'
 
 
@@ -8,6 +10,11 @@ import {
     headLinkOptions: {
       preset: '2023'
     },
-    preset,
+    preset: combinePresetAndAppleSplashScreens(minimal2023Preset, {
+      // dark splash screens using black background (the default)
+      darkResizeOptions: { background: 'black', fit: 'contain' },
+      // or using a custom background color
+      // darkResizeOptions: { background: '#1f1f1f' },
+    }, AllAppleDeviceNames),
     images: ['public/nasdaq-icon-512.png']
   })
