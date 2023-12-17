@@ -16,7 +16,8 @@ import {
       linkMediaOptions:{
         addMediaScreen: true,
         log: true,
-        xhtml: false
+        xhtml: false,
+        basePath: '/',
       },
       png: {
         compressionLevel: 9,
