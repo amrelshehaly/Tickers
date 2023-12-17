@@ -16,6 +16,13 @@ This is a straightforward application that simulates the global stock exchange u
 - User can search for a specific stock (backend search)
 
 
+## PWO
+To fully immerse yourself in the PWA experience, I recommend installing it on your mobile device via Chrome. 
+Simply navigate to the settings, and for Android users, choose the "Install App" option. For iOS users,
+add it to your homepage.
+
+##
+
 ### To install dependencies type this command:
 ```git
   yarn add // or npm install
