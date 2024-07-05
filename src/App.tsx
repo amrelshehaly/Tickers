@@ -8,7 +8,7 @@ import Loading from "./common/loading";
 
 function App() {
 
-  const { fetchMore, response, loading, reFetchData, error, restResult, setSearch } = useTicker()
+  const { fetchMore, response, loading, reFetchData, error, restResult, searchRef, handleSearchCallback } = useTicker()
 
   const handleSearch = () => {
     restResult()
@@ -17,9 +17,8 @@ function App() {
   return ( 
     <>
       <SearchBar
-        onChange={(e) => {
-          setSearch(e.target.value)
-        }}
+        ref={searchRef}
+        onChange={handleSearchCallback}
         onSubmit={() => handleSearch()}
       />
       {error && <Alert msg={error?.error} refetch={reFetchData} />}

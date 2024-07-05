@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { getTickers } from "../api/tickers";
 import { useStore } from "../context/store";
 import { ErrorProps } from "../api/types";
@@ -8,7 +8,8 @@ const useTicker = () => {
     const [ error, setError ] = useState<ErrorProps| undefined>(undefined)
     const [ loading, setLoading ] = useState<boolean>(true)
     const { response, setResults, clearResults } = useStore();
-    const [ search, setSearch ] = useState<string>('')
+    const  searchRef = useRef<HTMLInputElement>(null)
+    // const [ search, setSearch ] = useState<string>('')
 
   const url = response.next_url || "https://api.polygon.io/v3/reference/tickers?active=true&limit=20";
 
@@ -18,7 +19,7 @@ const useTicker = () => {
   const fetchData = async () => {
     setLoading(true)
     try {
-        const output = await getTickers(url, search);
+        const output = await getTickers(url, searchRef.current?.value);
         if(output.status === 'OK'){
            setResults({
                 ...output,
@@ -71,6 +72,14 @@ const useTicker = () => {
     }
   }, [response.next_url]);
 
+  // useEffect(() => {
+  //   if(search.length === 0) restResult()
+  // },[search])
+
+  const handleSearchCallback = useCallback(() => {
+    if(searchRef.current?.value === '') clearResults()
+  },[])
+
 
   return {
     response,
@@ -79,8 +88,10 @@ const useTicker = () => {
     error,
     loading,
     fetchData,
-    setSearch,
-    restResult
+    // setSearch,
+    restResult,
+    handleSearchCallback,
+    searchRef
   }
 
 };

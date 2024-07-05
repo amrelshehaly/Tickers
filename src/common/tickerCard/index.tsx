@@ -15,7 +15,7 @@ const TickerCard = ({ companyName, name }: CardProps) => {
   return (
     <div className="CardWrapper">
       <div className="CardContent">
-        <div id="title">{name}</div>
+        <div role="title" id="title">{name}</div>
         <div id="subTitle">{companyName}</div>
       </div>
     </div>

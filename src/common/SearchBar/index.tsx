@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import './styles.scss'
 
 type SearchProps = {
@@ -13,8 +13,8 @@ type SearchProps = {
  * @returns a searchbar component for user to search for the ticker.
  */
 
-const SearchBar = ({ onChange, onSubmit }: SearchProps) => {
- 
+const SearchBar =  forwardRef(({ onChange, onSubmit }: SearchProps, ref: React.Ref<HTMLInputElement>) => {
+
   const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if(event.key === 'Enter'){
       onSubmit()
@@ -22,10 +22,13 @@ const SearchBar = ({ onChange, onSubmit }: SearchProps) => {
   }
 
   return (
-    <div className='SearchWrapper'>
-        <input placeholder='Search for a stock' type='search' onChange={onChange} onKeyPress={handleKeyPress} />
+    <div>
+      <div className='SearchWrapper'>
+          <input ref={ref} data-testid='inputSearch' placeholder='Search for a stock' type='search' onChange={onChange} onKeyPress={handleKeyPress} />
+      </div>
+      <div style={{ paddingLeft: '3%', color: 'white' }}>Press Enter to Search</div>
     </div>
   )
-}
+})
 
 export default SearchBar
