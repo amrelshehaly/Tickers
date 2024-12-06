@@ -54,10 +54,11 @@ const pwaOptions: Partial<VitePWAOptions> = {
   manifest: {
     name: 'Nasdaq app',
     short_name: 'Nasdaq app',
-    theme_color: '#000000',
+    theme_color: '#ffffff',
     scope: '/',
     start_url: '/',
     display: 'standalone',
+    orientation: 'portrait',
     background_color: '#000000',
     icons: [
       {
